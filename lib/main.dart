@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import 'ImageSearch.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
       messagingSenderId:
           "907926694395-9mgf633f7jaqanje0tp1u1078ueau5m7.apps.googleusercontent.com",
       projectId: "myface-3a8e5",
+      storageBucket: "myface-3a8e5.appspot.com",
     ),
   );
   // This widget is the root of your application.
@@ -85,6 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _gotosearch() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SearchPage(title: 'Searching your face from remote database')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -126,10 +136,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            FloatingActionButton(
+              heroTag: "btnSearch",
+              onPressed: _gotosearch,
+              tooltip: 'Search',
+              child: Icon(Icons.search),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "btnIncr",
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
