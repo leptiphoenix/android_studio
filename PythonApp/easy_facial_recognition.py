@@ -30,7 +30,6 @@ face_detector = dlib.get_frontal_face_detector()
 print('[INFO] Importing pretrained model..')
 
 def createSmartContract(name):
-    print("test")
     consent = input("Give Consent :")
     if (consent == "yes"):
         listBlock.addBlock(Blockchain.FacialCoinBlock(listBlock.lastBLockHash(),name + " " + consent))
