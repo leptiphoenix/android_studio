@@ -1,3 +1,4 @@
+import 'package:android_studio/sendEmail.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -94,7 +95,14 @@ class _MyHomePageState extends State<MyHomePage> {
       MaterialPageRoute(builder: (context) => SearchPage(title: 'Searching your face from remote database')),
     );
   }
-
+  /**
+  void _gotosend() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => sendMail(title: 'Sending mail to the person')),
+    );
+  }
+  **/
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -142,6 +150,14 @@ class _MyHomePageState extends State<MyHomePage> {
               tooltip: 'Search',
               child: Icon(Icons.search),
             )
+            /**
+            ,FloatingActionButton(
+              heroTag: "btnSendMail",
+              onPressed: _gotosend,
+              tooltip: 'Search',
+              child: Icon(Icons.search),
+            )
+             **/
           ],
         ),
       ),

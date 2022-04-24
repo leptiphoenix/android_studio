@@ -30,10 +30,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^1.14.1
   firebase_storage: ^10.2.12
+  #flutter_email_sender: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

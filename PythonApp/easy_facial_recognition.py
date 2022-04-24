@@ -9,8 +9,12 @@ import argparse
 from pathlib import Path
 import os
 import ntpath
+import datetime
+
+from scipy import rand
 
 import Blockchain
+import ConsentPicture
 
 
 global listBlock
@@ -30,10 +34,8 @@ face_detector = dlib.get_frontal_face_detector()
 print('[INFO] Importing pretrained model..')
 
 def createSmartContract(name):
-    consent = input("Give Consent :")
-    if (consent == "yes"):
-        listBlock.addBlock(Blockchain.FacialCoinBlock(listBlock.lastBLockHash(),name + " " + consent))
-    print(listBlock.lastBlock().block_data)
+    consent = ConsentPicture.ConsentPicture.createConsent()
+    listBlock.addBlock(Blockchain.FacialCoinBlock(listBlock.lastBLockHash(),"id user :" + str(2849) + " / id consent : " + str(listBlock.getID()) + " " + " / date :" + str(datetime.datetime.today().strftime('%Y-%m-%d'))),consent)
     return
 
 def faceNotMatch():
